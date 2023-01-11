@@ -1,0 +1,20 @@
+//
+// Created by TJ on 1/11/2023.
+//
+
+#ifndef GRAPHING_CALCULATOR_ENGINE_PPMOUTPUT_H
+#define GRAPHING_CALCULATOR_ENGINE_PPMOUTPUT_H
+
+#endif //GRAPHING_CALCULATOR_ENGINE_PPMOUTPUT_H
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+void out(
+        char * name,
+        char * fcomment,
+        unsigned int xRes,
+        unsigned int yRes,
+        unsigned char * img
+);
