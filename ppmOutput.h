@@ -11,10 +11,10 @@
 #include <stdlib.h>
 #include <math.h>
 
-void out(
+void writePPM(
         char * name,
         char * fcomment,
         unsigned int xRes,
         unsigned int yRes,
-        unsigned char * img
+        const unsigned char * img
 );
