@@ -10,11 +10,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include "vars.h"
 
-void writePPM(
-        char * name,
-        char * fcomment,
-        unsigned int xRes,
-        unsigned int yRes,
-        const unsigned char * img
-);
+extern unsigned char * img;
+
+void outputInit();
+
+void outputCleanup();
+
+void output(char * name, unsigned int type);
+
+void writePPM(char * name, char * fcomment);

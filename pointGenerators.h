@@ -7,9 +7,9 @@
 
 #endif //GRAPHING_CALCULATOR_ENGINE_POINTGENERATORS_H
 
+#include "vars.h"
+
 void xPoints(
-        unsigned int xRes,
-        unsigned int num,
         double dx,
         double x,
         double * points,

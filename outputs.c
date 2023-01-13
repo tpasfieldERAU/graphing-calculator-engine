@@ -2,10 +2,32 @@
 // Created by TJ on 1/11/2023.
 //
 
-#include "ppmOutput.h"
+// MOVE ALL COLORS TO BEING APPLIED TO THIS ENTIRE FILE
 
+#include "outputs.h"
 
-void writePPM(char *name, char *fcomment, unsigned int xRes, unsigned int yRes, const unsigned char *img) {
+unsigned char * img;
+
+void outputInit(){
+    img = calloc(xRes * yRes, sizeof img);
+}
+
+void outputCleanup(){
+    free(img);
+}
+
+void output(char * name, unsigned int type){
+    switch(type){
+        case 0:
+            // PPM OUTPUT
+            writePPM(name, "# ");
+            break;
+        default:
+            break;
+    }
+}
+
+void writePPM(char *name, char *fcomment) {
     FILE * image;
     image = fopen(name, "wb");
     fprintf(image, "P6\n%s\n%d\n%d\n%d\n", fcomment, xRes, yRes, 255);

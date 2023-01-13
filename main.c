@@ -1,13 +1,13 @@
 //
 // Created by TJ on 1/11/2023.
 //
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 
-#include "ppmOutput.h"
+#include "outputs.h"
 #include "pointGenerators.h"
+#include "vars.h"
 
 // Placeholder function to plot, look into lambdas and things too
 double userFunc(double x){
@@ -16,43 +16,24 @@ double userFunc(double x){
 }
 
 int main(){
-    unsigned int xRes = 240;
-    unsigned int yRes = 180;
-
-    // This guarantees a center row of pixels, for easier plotting and centering
-    xRes += (xRes % 2 == 0);
-    yRes += (yRes % 2 == 0);
-
-    unsigned int num = 32;
-    if (num > xRes){
-        printf("Invalid number of points. Try again.");
-        return 1;
-    }
-    double bounds[4] = {0.0, 8.0, -3.0, 3.0};
+    double b[4] = {0.0, 8.0, -3.0, 3.0};
+    varsInit(240, 180, 1, 1, 32, b);
+    outputInit();
 
     unsigned int xDiv = xRes / num;
     double dx = (double)(bounds[1] - bounds[0]) / (double) xDiv;
 
+
+    // Consider moving this?
+    // Otherwise, it allows easy use of keeping data in an array format, which could be good
+    //  for table view and other processing
     double *points = NULL;
-    points = (double *) calloc((xRes / num +1) * 2, sizeof points);
+    points = (double *) calloc((xRes / num + 1) * 2, sizeof points);
 
-    /*
-    double *axes = NULL;
-    axes = (double * ) calloc((xRes + yRes) * 2, sizeof axes);
-    */
-
-    unsigned int length = xDiv;
-    unsigned char * img;
-    img = (unsigned char *) calloc(xRes * yRes, sizeof img);
-
-    // POINT GENERATORS ARE PUT HERE
-    xPoints(xRes, num, dx, bounds[0], points, userFunc);
+    xPoints(dx, bounds[0], points, userFunc);
     // PLOT FUNCTIONS ARE PUT HERE
 
-    writePPM("test.ppm", "# ", xRes, yRes, img);
-
-    free(points);
-    // free(axes);
-    free(img);
+    output("point.ppm", 0);
+    outputCleanup();
     return 0;
 }
