@@ -33,7 +33,7 @@ int main(){
     xPoints(dx, bounds[0], points, userFunc);
     // PLOT FUNCTIONS ARE PUT HERE
 
-    output("point.ppm", 0);
+    output("./point.ppm", 0);
     outputCleanup();
     return 0;
 }

@@ -7,9 +7,10 @@
 #include "outputs.h"
 
 unsigned char * img;
+FILE * image;
 
 void outputInit(){
-    img = calloc(xRes * yRes, sizeof img);
+    img = calloc(xRes * yRes, sizeof(unsigned char));
 }
 
 void outputCleanup(){
@@ -28,7 +29,6 @@ void output(char * name, unsigned int type){
 }
 
 void writePPM(char *name, char *fcomment) {
-    FILE * image;
     image = fopen(name, "wb");
     fprintf(image, "P6\n%s\n%d\n%d\n%d\n", fcomment, xRes, yRes, 255);
 
