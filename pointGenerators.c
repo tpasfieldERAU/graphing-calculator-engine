@@ -11,7 +11,7 @@ void xPoints(
         double f(double)
         ){
 
-    for (unsigned int i = 0; i <= num; i++){
+    for (unsigned int i = 0; i < num; i++){
         points[2*i] = x;
         points[2*i + 1] = f(x);
         x += dx;
