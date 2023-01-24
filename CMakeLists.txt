@@ -7,5 +7,9 @@ include_directories(.)
 
 add_executable(graphing_calculator_engine
         main.c
-        outputs.c
-        outputs.h pointGenerators.c pointGenerators.h plotters.c plotters.h vars.c vars.h)
+        outputs.c outputs.h
+        pointGenerators.c pointGenerators.h
+        plotters.c plotters.h
+        vars.c vars.h)
+
+target_link_libraries(${PROJECT_NAME} m)
