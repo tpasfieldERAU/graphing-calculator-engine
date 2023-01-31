@@ -5,13 +5,13 @@
 #include "pointGenerators.h"
 
 void xPoints(
-        double dx,
-        double x,
-        double * points,
-        double f(double)
+        float dx,
+        float x,
+        float * points,
+        float f(float)
         ){
 
-    for (unsigned int i = 0; i <= num; i++){
+    for (unsigned int i = 0; i < num; i++){
         points[2*i] = x;
         points[2*i + 1] = f(x);
         x += dx;

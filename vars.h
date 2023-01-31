@@ -16,10 +16,10 @@ extern unsigned char shape;
 extern unsigned char lineColor;
 extern unsigned int num;
 
-extern double * bounds;
+extern float * bounds;
 
 
 
-void varsInit(unsigned int xR, unsigned int yR, unsigned char s, unsigned char c, unsigned int n, double bounds[4]);
+void varsInit(unsigned int xR, unsigned int yR, unsigned char s, unsigned char c, unsigned int n, float bounds[4]);
 void changeShape(unsigned char s);
 void changeColor(unsigned char c);

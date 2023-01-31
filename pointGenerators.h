@@ -10,8 +10,8 @@
 #include "vars.h"
 
 void xPoints(
-        double dx,
-        double x,
-        double * points,
-        double f(double)
+        float dx,
+        float x,
+        float * points,
+        float f(float)
 );

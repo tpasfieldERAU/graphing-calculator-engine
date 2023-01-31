@@ -9,9 +9,9 @@ unsigned int yRes;
 unsigned char shape;
 unsigned char lineColor;
 unsigned int num;
-double * bounds;
+float * bounds;
 
-void varsInit(unsigned int xR, unsigned int yR, unsigned char s, unsigned char c, unsigned int n, double b[4]){
+void varsInit(unsigned int xR, unsigned int yR, unsigned char s, unsigned char c, unsigned int n, float b[4]){
     xRes = xR;
     yRes = yR;
     xRes += (xRes % 2 == 0);
