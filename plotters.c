@@ -31,11 +31,11 @@ void plotPixel(int x, int y){
     img[xRes * y + x] = lineColor;
 }
 
-void plot(double * points){
-    double hX = xRes / 2.0, hY = yRes / 2.0;
-    double xSpan = bounds[1] - bounds[0];
-    double ySpan = bounds[3] - bounds[2];
-    double xp1, yp1, xp2, yp2;
+void plot(const float * points){
+    float hX = (float) xRes / 2.0f, hY = (float) yRes / 2.0f;
+    float xSpan = bounds[1] - bounds[0];
+    float ySpan = bounds[3] - bounds[2];
+    float xp1, yp1, xp2, yp2;
     int x0, y0, x1, y1;
 
     for (unsigned int i = 0; i < (num-1) * 2; i++){
@@ -45,10 +45,10 @@ void plot(double * points){
         yp2 = points[2*(i+1) + 1];
 
         // IGNORE NARROWING CONVERSION FOR NOW
-        x0 = (int) (xRes * xp1) / xSpan + hX;
-        y0 = (int) (yRes * yp1) / ySpan + hY;
-        x1 = (int) (xRes * xp2) / xSpan + hX;
-        y1 = (int) (yRes * yp2) / ySpan + hY;
+        x0 = (int) (((float) xRes * xp1) / xSpan + hX);
+        y0 = (int) (((float) yRes * yp1) / ySpan + hY);
+        x1 = (int) (((float) xRes * xp2) / xSpan + hX);
+        y1 = (int) (((float) yRes * yp2) / ySpan + hY);
 
         plotLine(x0, y0, x1, y1);
 
