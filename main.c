@@ -18,7 +18,7 @@ float userFunc(float x){
 }
 
 void printPoints(float * points){
-    for (int i = 0; i < num; i++){
+    for (int i = 0; i <= num; i++){
         printf("%f\t%f\n", points[2*i], points[2*i + 1]);
     }
 }
@@ -36,7 +36,7 @@ int main(){
     // Otherwise, it allows easy use of keeping data in an array format, which could be good
     //  for table view and other processing
     float *points = NULL;
-    points = (float *) calloc(num * 2, sizeof points);
+    points = (float *) calloc((num+1) * 2, sizeof points);
 
     xPoints(dx, bounds[0], points, userFunc);
     // PLOT FUNCTIONS ARE PUT HERE
