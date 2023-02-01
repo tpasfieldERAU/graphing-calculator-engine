@@ -6,7 +6,7 @@
 
 // REQUIRES THE COORDINATES TO BE TRANSFORMED BEFORE USE
 // REQUIRES A REWRITE OF PPMOUTPUT AND OTHER OUTPUT METHODS
-void plotLine(int x0, int y0, int x1, int y1){
+/*void plotLine(int x0, int y0, int x1, int y1){
     int dx = x1 - x0;
     int dy = y1 - y0;
 
@@ -21,7 +21,32 @@ void plotLine(int x0, int y0, int x1, int y1){
         }
         D = D + 2 * dy;
     }
+}*/
+void plotLine(int x0, int y0, int x1, int y1){
+    int dx = abs(x1 - x0);
+    int sx = x0 < x1 ? 1: -1;
+    int dy = -abs(y1 - y0);
+    int sy = y0 < y1 ? 1: -1;
+
+    int error = dx + dy;
+
+    while(1){
+        plotPixel(x0, y0);
+        if(x0 == x1 && y0 == y1){break;}
+        int e2 = 2 * error;
+        if(e2 >= dy){
+            if(x0==x1){break;}
+            error = error + dy;
+            x0 = x0 + sx;
+        }
+        if(e2 <= dx){
+            if(y0 == y1){break;}
+            error = error + dx;
+            y0 = y0 + sy;
+        }
+    }
 }
+
 // This is more of a placeholder because I'm lazy
 void plotPixel(int x, int y){
     // IMPLEMENT SHAPES LATER
@@ -38,7 +63,7 @@ void plot(const float * points){
     float xp1, yp1, xp2, yp2;
     int x0, y0, x1, y1;
 
-    for (unsigned int i = 0; i < (num-1) * 2; i++){
+    for (unsigned int i = 0; i < num; i++){
         xp1 = points[2*i];
         yp1 = points[2*i + 1];
         xp2 = points[2*(i+1)];
