@@ -50,7 +50,7 @@ void plotLine(int x0, int y0, int x1, int y1){
 // This is more of a placeholder because I'm lazy
 void plotPixel(int x, int y){
     // IMPLEMENT SHAPES LATER
-    if (x < 0 | x > xRes | y < 0 | y > yRes){
+    if (x < 0 | x >= xRes | y < 0 | y >= yRes){
         return;
     }
     img[xRes * y + x] = lineColor;
