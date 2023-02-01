@@ -18,29 +18,26 @@ float userFunc(float x){
 }
 
 void printPoints(float * points){
-    for (int i = 0; i < num; i++){
+    for (int i = 0; i <= num; i++){
         printf("%f\t%f\n", points[2*i], points[2*i + 1]);
     }
 }
 
 int main(){
     float b[4] = {-10.0f, 10.0f, -4.0f, 4.0f};
-    varsInit(240, 180, 1, 1, 64, b);
+    varsInit(240, 180, 1, 6, 90, b);
     outputInit();
 
     float dx = (float)(bounds[1] - bounds[0]) / (float) num;
-    //printf("%f", dx);
 
 
     // Consider moving this?
     // Otherwise, it allows easy use of keeping data in an array format, which could be good
     //  for table view and other processing
     float *points = NULL;
-    points = (float *) calloc(num * 2, sizeof points);
+    points = (float *) calloc((num+1) * 2, sizeof points);
 
     xPoints(dx, bounds[0], points, userFunc);
-    // PLOT FUNCTIONS ARE PUT HERE
-    printPoints(points);
     plot(points);
 
     output("./point.ppm", 0);
