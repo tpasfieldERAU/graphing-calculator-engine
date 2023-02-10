@@ -65,9 +65,9 @@ void plot(const float * points){
 
     for (unsigned int i = 0; i < num; i++){
         xp1 = points[2*i];
-        yp1 = points[2*i + 1];
+        yp1 = -1.0f * points[2*i + 1];
         xp2 = points[2*(i+1)];
-        yp2 = points[2*(i+1) + 1];
+        yp2 = -1.0f * points[2*(i+1) + 1];
 
         // IGNORE NARROWING CONVERSION FOR NOW
         x0 = (int) (((float) xRes * xp1) / xSpan + hX);
