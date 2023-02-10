@@ -30,3 +30,11 @@ void polarPoints(
         float * points,
         float f(float)
         );
+
+void parametricPoints(
+        float dT,
+        float T,
+        float * points,
+        float fx(float),
+        float fy(float)
+        );

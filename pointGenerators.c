@@ -45,3 +45,17 @@ void polarPoints(
         theta += dtheta;
     }
 }
+
+void parametricPoints(
+        float dT,
+        float T,
+        float * points,
+        float fx(float),
+        float fy(float)
+        ){
+    for (unsigned int i = 0; i <= num; i++){
+        points[2*i] = fx(T);
+        points[2*i+1] = fy(T);
+        T += dT;
+    }
+}
