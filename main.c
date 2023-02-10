@@ -12,8 +12,12 @@
 
 // Placeholder function to plot, look into lambdas and things too
 float userFunc(float x){
-    //float ans = sqrtf(x) * sinf(8 * x);
     float ans = sinf(x) + 2.0f*cosf(x/3.0f) + sinf(2.0f*x);
+    return ans;
+}
+
+float polarFunc(float t){
+    float ans = sinf(19.0f * t / 20.0f);
     return ans;
 }
 
@@ -24,11 +28,12 @@ void printPoints(float * points){
 }
 
 int main(){
-    float b[4] = {-10.0f, 10.0f, -4.0f, 4.0f};
-    varsInit(240, 180, 1, 6, 90, b);
+    float b[4] = {-1.1f, 1.1f, -1.1f, 1.1f};
+    varsInit(720, 720, 1, 1, 360, b);
     outputInit();
 
     float dx = (float)(bounds[1] - bounds[0]) / (float) num;
+    float dtheta = 2.0f * M_PI / 60.0f;
 
 
     // Consider moving this?
@@ -37,7 +42,9 @@ int main(){
     float *points = NULL;
     points = (float *) calloc((num+1) * 2, sizeof points);
 
-    xPoints(dx, bounds[0], points, userFunc);
+    //xPoints(dx, bounds[0], points, userFunc);
+
+    polarPoints(dtheta, 0.0f, points, polarFunc);
     plot(points);
 
     output("./point.ppm", 0);

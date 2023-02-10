@@ -23,10 +23,10 @@ void varsInit(unsigned int xR, unsigned int yR, unsigned char s, unsigned char c
     bounds = b;
 
     // Try putting this somewhere else?
-    if (num > xRes){
+    /*if (num > xRes){
         printf("Invalid number of points. Try again.");
         exit(1);
-    }
+    }*/
 }
 
 void changeShape(unsigned char s){
