@@ -43,15 +43,15 @@ void writePPM(char *name, char *fcomment) {
     // This whole thing should probably be in C++ ngl
     // These colors are currently all stolen from the Manim Project, since it provides a nice color theme.
     // Might put a Gruv color theme commented out, just because I like it.
-    unsigned char ctable[27] = {0, 0,0,          /* 0 */
-                                252, 98, 85,     /* 1 red    */
+    unsigned char ctable[27] = {255, 255,255,      /* 0        */
+                                252, 98, 85,       /* 1 red    */
                                 88, 196, 221,      /* 2 blue   */
                                 131, 193, 103,   /* 3 green  */
                                 255, 255, 0,    /* 4 yellow */
                                 92, 208, 179,   /* 5 teal   */
                                 154, 114, 172,  /* 6 purple */
                                 197, 95, 115,   /* 7 maroon */
-                                255, 255, 255}; /* 8 */
+                                0, 0, 0};       /* 8        */
     unsigned char c;
 
     for (unsigned int y = 0; y < yRes; y++) {
