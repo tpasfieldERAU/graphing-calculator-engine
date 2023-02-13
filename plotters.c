@@ -4,24 +4,6 @@
 
 #include "plotters.h"
 
-// REQUIRES THE COORDINATES TO BE TRANSFORMED BEFORE USE
-// REQUIRES A REWRITE OF PPMOUTPUT AND OTHER OUTPUT METHODS
-/*void plotLine(int x0, int y0, int x1, int y1){
-    int dx = x1 - x0;
-    int dy = y1 - y0;
-
-    int D = 2 * dy - dx;
-    int y = y0;
-
-    for(int x = x0; x <= x1; x++){
-        plotPixel(x, y);
-        if(D > 0){
-            y = y + 1;
-            D = D - 2*dx;
-        }
-        D = D + 2 * dy;
-    }
-}*/
 void plotLine(int x0, int y0, int x1, int y1){
     int dx = abs(x1 - x0);
     int sx = x0 < x1 ? 1: -1;
@@ -46,6 +28,33 @@ void plotLine(int x0, int y0, int x1, int y1){
         }
     }
 }
+
+/* EXPERIMENTAL MIDPOINT METHOD. WORKS WITH DISCONTINUITY BUT LOOKS TERRIBLE
+void plotLine(int x0, int y0, int x1, int y1){
+    int dx = abs(x1 - x0);
+    int dy = abs(y1 - y0);
+    int d = 2*dy-dx;
+
+    int iE = 2*dy;
+    int iNE = 2*(dy-dx);
+
+    int x=x0;
+    int y=y0;
+    plotPixel(x,y);
+
+    while(x < x1) {
+        if (d <= 0) {
+            d += iE;
+            x++;
+        } else {
+            d += iNE;
+            x++;
+            y++;
+        }
+        plotPixel(x,y);
+    }
+}
+*/
 
 // This is more of a placeholder because I'm lazy
 void plotPixel(int x, int y){
