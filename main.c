@@ -33,8 +33,8 @@ void printPoints(float * points){
 }
 
 int main(){
-    float b[4] = {-5.0f, 5.0f, -2.5f, 2.5f};
-    varsInit(720, 720, 1, 1, 500000, b);
+    float b[4] = {-5.0f, 5.0f, -1.0f, 1.0f};
+    varsInit(720, 720, 1, 1, 360, b);
     outputInit();
 
     float dx = (float)(bounds[1] - bounds[0]) / (float) num;
