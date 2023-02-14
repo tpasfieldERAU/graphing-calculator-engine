@@ -23,3 +23,6 @@ extern float * bounds;
 void varsInit(unsigned int xR, unsigned int yR, unsigned char s, unsigned char c, unsigned int n, float bounds[4]);
 void changeShape(unsigned char s);
 void changeColor(unsigned char c);
+void changeBounds(float b[4]);
+void changeSamples(unsigned int n);
+void changeRes(unsigned int xR, unsigned int yR);

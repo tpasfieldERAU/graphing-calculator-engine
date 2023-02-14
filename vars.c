@@ -36,3 +36,18 @@ void changeShape(unsigned char s){
 void changeColor(unsigned char c){
     lineColor = c;
 }
+
+void changeBounds(float b[4]){
+    bounds = b;
+}
+
+void changeSamples(unsigned int n){
+    num = n;
+}
+
+void changeRes(unsigned int xR, unsigned int yR){
+    xRes = xR;
+    yRes = yR;
+    xRes += (xRes % 2 == 0);
+    yRes += (yRes % 2 == 0);
+}
